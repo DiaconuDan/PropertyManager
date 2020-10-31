@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { TApplicantList } from "../components/types";
+import { TApplicantList } from "../../components/types";
 import { NotificationManager } from "react-notifications";
 
 const useRequest = (url: string) => {
@@ -33,7 +33,7 @@ const useRequest = (url: string) => {
     fetchData();
   }, [url]);
 
-  return { applicants, isLoading, isError };
+  return { applicants, setApplicants, isLoading, isError };
 };
 
 export default useRequest;
