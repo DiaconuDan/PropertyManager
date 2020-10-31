@@ -17,3 +17,6 @@ export interface Applicant {
     status: Status,
     bid?:number,
 }
+
+
+

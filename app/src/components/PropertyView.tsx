@@ -1,38 +1,31 @@
-import React, { useState, useEffect, Fragment } from "react";
-import axios from "axios";
-import { TApplicantList } from "./types";
+import React, { FunctionComponent } from "react";
+import styled from "styled-components";
+import "react-notifications/lib/notifications.css";
+import ClipLoader from "react-spinners/ClipLoader";
+import {
+  NotificationContainer,
+} from "react-notifications";
+import useRequest from "../hooks/useRequest";
 
-const PropertyView = () => {
-  const [applicants, setApplicants] = useState<TApplicantList>([]);
-  const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+const Wrapper = styled.div`
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+`;
 
-  const fetchData = async () => {
-    setIsLoading(true);
-    setIsError(false);
-
-    await axios
-      .get<TApplicantList>(
-        "https://5f9d70d76dc8300016d57b8a.mockapi.io/applicantszz"
-      )
-      .then((response) => {
-        setApplicants(response.data);
-      })
-      .catch((error) => setIsError(true));
-
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+const PropertyView: FunctionComponent = () => {
+  const { applicants , isLoading, isError } = useRequest("https://5f9d70d76dc8300016d57b8a.mockapi.io/applicants");
 
   return (
-    <Fragment>
-      {isError && <div>Something went wrong ...</div>}
-
-      {isLoading ? <div>Loading ...</div> : <div> Merge frr</div>}
-    </Fragment>
+    <Wrapper>
+      <NotificationContainer />
+      <ClipLoader size={50} color={"#36D7B7"} loading={isLoading} />
+      {!isLoading && !isError && applicants.length > 0 && <div> {applicants[0].firstName} </div>}
+    </Wrapper>
   );
 };
 
