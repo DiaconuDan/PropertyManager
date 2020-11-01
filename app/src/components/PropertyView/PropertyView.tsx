@@ -4,11 +4,10 @@ import "react-notifications/lib/notifications.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import Error from './Error' ;
 import useRequest from "../../hooks/request/useRequest";
-import useQueryString from "../../hooks/queryString/useQueryString";
+import useQueryString from "../../hooks/query/useQueryString";
 import { Status } from "../types";
-import { queryApplicants } from "../../hooks/queryString/utils";
+import { queryApplicants } from "../../hooks/query/utils";
 import ApplicantRow from "../Applicant/ApplicantRow";
-
 import Header from './Header';
 import SearchArea from "./SearchArea";
 
@@ -17,8 +16,6 @@ const Body = styled.div`
   line-height: 100px;
   padding-left: 40px;
 `;
-
-
 
 const PropertyView: FunctionComponent = () => {
   const { applicants, isLoading, isError } = useRequest(
