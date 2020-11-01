@@ -1,4 +1,4 @@
-import React, {  FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import "react-notifications/lib/notifications.css";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -8,15 +8,12 @@ import useQueryString from "../hooks/queryString/useQueryString";
 import { Status } from "./types";
 import { queryApplicants } from "../hooks/queryString/utils";
 import ApplicantRow from "./ApplicantRow";
+import SearchInput from "./SearchInput";
 
 const Wrapper = styled.div`
-  left: 0;
-  line-height: 200px;
-  margin-top: -100px;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  width: 100%;
+  padding-top: 30px;
+  line-height: 100px;
+  padding-left: 40px;
 `;
 
 const PropertyView: FunctionComponent = () => {
@@ -32,20 +29,21 @@ const PropertyView: FunctionComponent = () => {
   });
 
   return (
-    <Wrapper>
+    <div>
       <NotificationContainer />
-      <input
-        type="text"
+      <SearchInput
         value={query}
         onChange={(e) => onSetValue(e.target.value)}
-      ></input>
-      <ClipLoader size={50} color={"#36D7B7"} loading={isLoading} />
-      {!isLoading &&
-        !isError &&
-        ApplicantsByStatus.map((rowApplicants,index) => {
-          return <ApplicantRow key={index} applicants={rowApplicants} />;
-        })}
-    </Wrapper>
+      />
+      <Wrapper>
+        <ClipLoader size={50} color={"#36D7B7"} loading={isLoading} />
+        {!isLoading &&
+          !isError &&
+          ApplicantsByStatus.map((rowApplicants, index) => {
+            return <ApplicantRow key={index} applicants={rowApplicants} />;
+          })}
+      </Wrapper>
+    </div>
   );
 };
 
