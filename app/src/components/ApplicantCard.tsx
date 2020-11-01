@@ -11,16 +11,18 @@ const Card = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column wrap;
   height: 200px;
   width: 250px;
-  left: 74px;
-  top: 301px;
+ 
   background: #ffffff;
   border: 1px solid #efefef;
   box-sizing: border-box;
   border-radius: 4px;
   flex-direction: row;  
+
+  display: flex;
+flex-flow: row wrap;
+
   
 `;
 
@@ -33,7 +35,7 @@ const FullName = styled.div`
 `;
 const PhoneNumber = styled.div`flex:2`;
 const Date = styled.div`flex:3`;
-const Bid = styled.div``;
+const Bid = styled.div`flex:4`;
 
 type ApplicantCardProps = {
   applicant: Applicant;

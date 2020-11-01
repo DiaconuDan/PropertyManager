@@ -9,11 +9,20 @@ import { Status } from "./types";
 import { queryApplicants } from "../hooks/queryString/utils";
 import ApplicantRow from "./ApplicantRow";
 import SearchInput from "./SearchInput";
+import StatusButton from "./StatusButton";
+import BidButton from "./BidButton";
 
 const Wrapper = styled.div`
   padding-top: 30px;
   line-height: 100px;
   padding-left: 40px;
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding-top: 80px;
+  padding-left: 20px;
 `;
 
 const PropertyView: FunctionComponent = () => {
@@ -31,10 +40,14 @@ const PropertyView: FunctionComponent = () => {
   return (
     <div>
       <NotificationContainer />
-      <SearchInput
-        value={query}
-        onChange={(e) => onSetValue(e.target.value)}
-      />
+      <SearchContainer>
+        <SearchInput
+          value={query}
+          onChange={(e) => onSetValue(e.target.value)}
+        />
+        <BidButton />
+        <StatusButton />
+      </SearchContainer>
       <Wrapper>
         <ClipLoader size={50} color={"#36D7B7"} loading={isLoading} />
         {!isLoading &&

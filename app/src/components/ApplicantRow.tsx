@@ -6,6 +6,7 @@ import ApplicantCard from "./ApplicantCard";
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 `;
 
 const Status = styled.div`
@@ -29,7 +30,6 @@ const ApplicantRow: FunctionComponent<ApplicantRowProps> = ({ applicants }) => {
 
   const status = applicants[0].status.replace("_", " ");
 
-  console.log(applicants);
   return (
     <Fragment>
       <Status> {status} </Status>
