@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { getQueryStringValue, setQueryStringValue } from "./utils";
 
-function useQueryString(key:any, initialValue:any) {
+function useQueryString(key:string, initialValue:string) {
   const [value, setValue] = useState(getQueryStringValue(key) || initialValue);
   const onSetValue = useCallback(
     newValue => {

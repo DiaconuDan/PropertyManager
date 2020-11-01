@@ -1,0 +1,40 @@
+import qs from "query-string";
+import { Applicant, TApplicantList } from "../../components/types";
+
+export const setQueryStringWithoutPageReload = (qsValue: string) => {
+  const newurl = "http://localhost:3000/page/" + qsValue;
+  window.history.pushState({ path: newurl }, "", newurl);
+};
+
+export const getQueryStringValue = (
+  key: string,
+  queryString : string = window.location.search 
+) => {
+  const values = qs.parse(queryString);
+  return values[key];
+};
+
+export const setQueryStringValue = (
+  key: string,
+  value: string,
+  queryString : string = window.location.search
+) => {
+  const values = qs.parse(queryString);
+  const newQsValue = qs.stringify({
+    ...values,
+    [key]: value,
+  });
+  setQueryStringWithoutPageReload(`?${newQsValue}`);
+};
+
+export const queryApplicants = (query: string, applicants: TApplicantList) => {
+  return query
+    ? applicants?.filter((applicant: Applicant) => {
+        return (
+          applicant.firstName.toLowerCase().includes(query.toLowerCase()) ||
+          applicant.lastName.toLowerCase().includes(query.toLowerCase()) ||
+          applicant.email.toLowerCase().includes(query.toLowerCase())
+        );
+      })
+    : applicants;
+};

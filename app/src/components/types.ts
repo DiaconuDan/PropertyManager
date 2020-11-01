@@ -1,10 +1,10 @@
 export type  TApplicantList = Applicant[] ;
   
 export enum Status {
-    Appointment_Set, 
-    Property_Viewed, 
-    Interested,
-    Offer_Accepted
+    Appointment_Set = "Appointment_Set", 
+    Property_Viewed = "Property_Viewed", 
+    Interested = "Interested",
+    Offer_Accepted = "Offer_Accepted"
 }
 
 export interface Applicant {
