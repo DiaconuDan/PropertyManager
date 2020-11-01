@@ -1,5 +1,5 @@
 import React, { FunctionComponent, Fragment } from "react";
-import { TApplicantList } from "./types";
+import { TApplicantList } from "../types";
 import styled from "styled-components";
 import ApplicantCard from "./ApplicantCard";
 

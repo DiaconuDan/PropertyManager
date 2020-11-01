@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PropertyView from './components/PropertyView';
+import PropertyView from './components/PropertyView/PropertyView';
 import 'semantic-ui-css/semantic.min.css';
 
 function App() {

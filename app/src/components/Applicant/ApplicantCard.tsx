@@ -1,5 +1,5 @@
 import React, { FunctionComponent, Fragment } from "react";
-import { Applicant } from "./types";
+import { Applicant } from "../types";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
