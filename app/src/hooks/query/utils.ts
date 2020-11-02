@@ -1,7 +1,13 @@
 import qs from "query-string";
 
 export const setQueryStringWithoutPageReload = (qsValue: string) => {
-  const newurl = "http://localhost:3000/page/" + qsValue;
+  let newurl;
+  if (window.location.hostname === "localhost") {
+    newurl = "http://localhost:3000/page/" + qsValue;
+  } else {
+    newurl = "property-manager-dandiaconu.herokuapp.com/page/" + qsValue;
+  }
+
   window.history.pushState({ path: newurl }, "", newurl);
 };
 

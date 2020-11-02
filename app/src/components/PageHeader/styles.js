@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import {mediaQueries} from '../../pages/PropertyView/styles' ;
-
+import { mediaQueries } from "../../pages/PropertyView/styles";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -23,7 +22,6 @@ export const StatisticsWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
-    
   ${mediaQueries.tabletPortrait`
     display: none;
 `};

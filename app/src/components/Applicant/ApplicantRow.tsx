@@ -20,7 +20,12 @@ const ApplicantRow: FunctionComponent<ApplicantRowProps> = ({ applicants }) => {
       <RowStatus> {rowStatus} </RowStatus>
       <RowWrapper>
         {applicants.map((applicant) => {
-          return <ApplicantCard applicant={applicant}></ApplicantCard>;
+          return (
+            <ApplicantCard
+              key={applicant.id}
+              applicant={applicant}
+            ></ApplicantCard>
+          );
         })}
       </RowWrapper>
     </Fragment>
