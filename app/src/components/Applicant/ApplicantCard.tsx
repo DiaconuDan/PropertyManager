@@ -1,41 +1,9 @@
 import React, { FunctionComponent, Fragment } from "react";
 import { Applicant } from "../types";
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-margin-left: 20px;
-margin-right: 20px;
-`;
-
-const Card = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-  width: 250px;
- 
-  background: #ffffff;
-  border: 1px solid #efefef;
-  box-sizing: border-box;
-  border-radius: 4px;
-  flex-direction: row;  
-
-  display: flex;
-flex-flow: row wrap;
-
-  
-`;
-
-const CardContent = styled.div`
-
-`;
-
-const FullName = styled.div`
-
-`;
-const PhoneNumber = styled.div`flex:2`;
-const Date = styled.div`flex:3`;
-const Bid = styled.div`flex:4`;
+import { Card } from "./styles";
+import Avatar from "react-avatar";
+import { getApplicantStatusDate } from "./utils";
+import { FullName, PhoneNumber, Email, DateWrapper, Date, Bid } from "./styles";
 
 type ApplicantCardProps = {
   applicant: Applicant;
@@ -48,20 +16,23 @@ const ApplicantCard: FunctionComponent<ApplicantCardProps> = ({
     return <Fragment />;
   }
 
-  return (
-    <Wrapper>
-        
-    <Card>
-      <CardContent>
+  const statusDate = getApplicantStatusDate(applicant.status, applicant.date);
+  const fullName = applicant.firstName + " " + applicant.lastName;
+  const bid = applicant.bid
+    ? applicant.bid && "BID " + applicant.bid + "€"
+    : "";
 
-    
-      <FullName>{applicant.firstName + " " + applicant.lastName}</FullName>
+  return (
+    <Card>
+      <Avatar size={"50px"} round name={fullName} />
+      <FullName> {fullName}</FullName>
       <PhoneNumber>{applicant.phoneNumber}</PhoneNumber>
-      <Date> {applicant.date} </Date>
-      {applicant.bid && <Bid> BID {applicant.bid}</Bid>}
-        </CardContent>
+      <Email> {applicant.email} </Email>
+      <DateWrapper>
+        <Date>{statusDate}</Date>
+      </DateWrapper>
+      {bid && <Bid>{bid}</Bid>}
     </Card>
-    </Wrapper>
   );
 };
 

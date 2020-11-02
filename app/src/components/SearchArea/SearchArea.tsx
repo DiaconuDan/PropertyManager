@@ -1,15 +1,8 @@
 import React, { FunctionComponent } from "react";
-import styled from "styled-components";
-import SearchInput from "../SearchInput/SearchInput";
+import SearchInput from "./SearchInput";
 import StatusButton from "../Buttons/StatusButton";
 import BidButton from "../Buttons/BidButton";
-
-const SearchContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding-top: 50px;
-  padding-left: 20px;
-`;
+import {SearchContainer} from './styles' ;
 
 type SearchAreaProps = {
   value: string;

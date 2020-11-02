@@ -1,23 +1,8 @@
 import React, { FunctionComponent, Fragment } from "react";
 import { TApplicantList } from "../types";
-import styled from "styled-components";
 import ApplicantCard from "./ApplicantCard";
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-`;
-
-const Status = styled.div`
-  color: #4a4a4a;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 24px;
-  padding-top: 15px;
-  padding-bottom:15px;
-`;
+import { RowWrapper, RowStatus } from "./styles";
+import { getApplicantRowStatus } from "./utils";
 
 type ApplicantRowProps = {
   applicants: TApplicantList;
@@ -28,16 +13,16 @@ const ApplicantRow: FunctionComponent<ApplicantRowProps> = ({ applicants }) => {
     return <Fragment />;
   }
 
-  const status = applicants[0].status.replace("_", " ");
+  const rowStatus = getApplicantRowStatus(applicants);
 
   return (
     <Fragment>
-      <Status> {status} </Status>
-      <Wrapper>
-      {applicants.map((applicant) => {
-        return <ApplicantCard applicant={applicant}></ApplicantCard>;
-      })}
-      </Wrapper>
+      <RowStatus> {rowStatus} </RowStatus>
+      <RowWrapper>
+        {applicants.map((applicant) => {
+          return <ApplicantCard applicant={applicant}></ApplicantCard>;
+        })}
+      </RowWrapper>
     </Fragment>
   );
 };

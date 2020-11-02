@@ -1,21 +1,15 @@
 import React, { Fragment, FunctionComponent } from "react";
-import styled from "styled-components";
 import "react-notifications/lib/notifications.css";
 import ClipLoader from "react-spinners/ClipLoader";
-import Error from './Error' ;
+import Error from "../../components/Error/Error";
 import useRequest from "../../hooks/request/useRequest";
 import useQueryString from "../../hooks/query/useQueryString";
-import { Status } from "../types";
-import { queryApplicants } from "../../hooks/query/utils";
-import ApplicantRow from "../Applicant/ApplicantRow";
-import Header from './Header';
-import SearchArea from "./SearchArea";
-
-const Body = styled.div`
-  padding-top: 30px;
-  line-height: 100px;
-  padding-left: 40px;
-`;
+import { Status } from "../../components/types";
+import { getApplicantsByQuery } from "../../components/Applicant/utils";
+import ApplicantRow from "../../components/Applicant/ApplicantRow";
+import Header from "../../components/PageHeader/Header";
+import SearchArea from "../../components/SearchArea/SearchArea";
+import { Body } from "./styles";
 
 const PropertyView: FunctionComponent = () => {
   const { applicants, isLoading, isError } = useRequest(
@@ -23,16 +17,14 @@ const PropertyView: FunctionComponent = () => {
   );
   const [query, onSetValue] = useQueryString("search", "");
 
-  const queriedApplicants = queryApplicants(query, applicants);
+  const queriedApplicants = getApplicantsByQuery(query, applicants);
 
   const ApplicantsByStatus = Object.values(Status).map((status) => {
     return queriedApplicants.filter((applicant) => applicant.status === status);
   });
 
   if (isError) {
-    return (
-     <Error />
-    );
+    return <Error />;
   }
 
   return (
