@@ -16,7 +16,7 @@ const useRequest = (url: string) => {
       await axios
         .get<TApplicantList>(url)
         .then((response) => {
-            console.log(response);
+          console.log(response);
           setApplicants(response.data);
         })
         .catch((error) => {

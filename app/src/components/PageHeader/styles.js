@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {mediaQueries} from '../../pages/PropertyView/styles' ;
+
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,6 +22,11 @@ export const StatisticsWrapper = styled.div`
   margin-left: auto;
   display: flex;
   flex-direction: row;
+
+    
+  ${mediaQueries.tabletPortrait`
+    display: none;
+`};
 `;
 
 export const BoxWrapper = styled.div`

@@ -1,7 +1,6 @@
 import React from "react";
 import { NotificationContainer } from "react-notifications";
-import {ErrorWrapper, ErrorMessage} from './styles' ;
-
+import { ErrorWrapper, ErrorMessage } from "./styles";
 
 const Error = () => (
   <ErrorWrapper>

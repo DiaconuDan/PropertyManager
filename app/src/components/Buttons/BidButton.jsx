@@ -9,10 +9,10 @@ const BidOptions = [
 ]
 
 const BidButton = () => (
-    <Menu compact style={{marginLeft:15}}>
-      <Dropdown text='Bids' options={BidOptions} simple item />
-    </Menu>
-  )
+  <Menu compact style={{ marginLeft: 15 }}>
+    <Dropdown text='Bids' options={BidOptions} simple item />
+  </Menu>
+)
 
 export default BidButton;
 

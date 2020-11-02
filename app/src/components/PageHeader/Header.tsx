@@ -8,7 +8,8 @@ const Header = () => (
     <ArrowBackIcon fontSize={"large"} />
     <Title> Applicants </Title>
     <StatisticsWrapper>
-      <Box number={9} text="Total" /> {/* the values of the boxes can come by looping through the values on the applicants and sending them as props here */}
+      <Box number={9} text="Total" />{" "}
+      {/* the values of the boxes can come by going through the values on the applicants and sending them as props here */}
       <SeparationBar />
       <Box number={3} text="New" />
       <SeparationBar />

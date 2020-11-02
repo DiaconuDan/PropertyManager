@@ -18,7 +18,7 @@ export const Card = styled.div`
   box-sizing: border-box;
   border-radius: 4px;
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 25px;
 `;
 
 export const RowWrapper = styled.div`
@@ -93,6 +93,3 @@ export const Email = styled.div`
   padding-bottom: 10px;
   font-size: 16px;
 `;
-
-
-
