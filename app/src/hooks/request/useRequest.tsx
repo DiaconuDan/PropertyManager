@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { TApplicantList } from "../../components/types";
+import { TApplicantList } from "../../components/Applicant/types";
 import { NotificationManager } from "react-notifications";
 
 const useRequest = (url: string) => {

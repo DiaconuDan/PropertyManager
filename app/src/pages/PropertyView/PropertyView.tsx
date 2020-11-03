@@ -4,7 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Error from "../../components/Error/Error";
 import useRequest from "../../hooks/request/useRequest";
 import useQueryString from "../../hooks/query/useQueryString";
-import { Status } from "../../components/types";
+import { Status } from "../../components/Applicant/types";
 import { getApplicantsByQuery } from "../../components/Applicant/utils";
 import ApplicantRow from "../../components/Applicant/ApplicantRow";
 import Header from "../../components/PageHeader/Header";

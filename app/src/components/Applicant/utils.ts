@@ -1,4 +1,4 @@
-import { Applicant, Status, TApplicantList } from "../types";
+import { Applicant, Status, TApplicantList } from "./types";
 import moment from "moment";
 
 export const getApplicantStatusDate = (status: string, date: Date) => {

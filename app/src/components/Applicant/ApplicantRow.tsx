@@ -1,5 +1,5 @@
 import React, { FunctionComponent, Fragment } from "react";
-import { TApplicantList } from "../types";
+import { TApplicantList } from "./types";
 import ApplicantCard from "./ApplicantCard";
 import { RowWrapper, RowStatus } from "./styles";
 import { getApplicantRowStatus } from "./utils";

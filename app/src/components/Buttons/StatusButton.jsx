@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dropdown, Menu } from 'semantic-ui-react'
-import { Status } from '../types';
+import { Status } from '../Applicant/types';
 
 const StatusButton = () => {
     const StatusOptions = [];

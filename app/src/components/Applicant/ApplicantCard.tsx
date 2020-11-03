@@ -1,5 +1,5 @@
 import React, { FunctionComponent, Fragment } from "react";
-import { Applicant } from "../types";
+import { Applicant } from "./types";
 import { Card } from "./styles";
 import Avatar from "react-avatar";
 import { getApplicantStatusDate } from "./utils";
